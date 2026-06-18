@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT. MARUICHI INDONESIA | Company Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fb;
+color:#333;
+}
+
+header{
+height:100vh;
+background:
+linear-gradient(rgba(0,32,80,.85),rgba(0,72,160,.8)),
+url("mi.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+padding:30px;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:700;
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
+.hero p{
+font-size:20px;
+line-height:1.8;
+}
+
+.button{
+
+display:inline-block;
+margin-top:30px;
+padding:15px 40px;
+background:white;
+color:#0052cc;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+transition:.4s;
+}
+
+.button:hover{
+transform:translateY(-5px);
+}
+
+nav{
+
+position:sticky;
+top:0;
+background:#002b69;
+padding:15px;
+z-index:1000;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+}
+
+nav ul{
+display:flex;
+justify-content:center;
+gap:40px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+section{
+padding:80px 8%;
+}
+
+.title{
+
+font-size:35px;
+color:#003b7a;
+text-align:center;
+margin-bottom:50px;
+}
+
+.title::after{
+
+content:'';
+display:block;
+width:100px;
+height:4px;
+background:#0052cc;
+margin:15px auto;
+
+}
+
+.about{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+
+}
+
+.about img{
+
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+.card-container{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+
+}
+
+.card{
+
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.timeline{
+
+max-width:900px;
+margin:auto;
+
+}
+
+.timeline-item{
+
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-left:6px solid #0052cc;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+
+}
+
+.gallery img{
+
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+
+}
+
+.contact{
+
+background:#002b69;
+color:white;
+border-radius:20px;
+padding:40px;
+
+}
+
+.contact p{
+
+margin:15px 0;
+
+}
+
+footer{
+
+background:#001c45;
+padding:30px;
+color:white;
+text-align:center;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+}
+.dark{
+background:#121212;
+color:white;
+}
+
+.dark .card,
+.dark .timeline-item,
+.dark .contact{
+background:#1f1f1f;
+color:white;
+}
+
+.dark .title{
+color:white;
+}
+
+#themeBtn{
+position:fixed;
+top:20px;
+right:20px;
+padding:12px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+z-index:9999;
+font-size:18px;
+}
+
+#topBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#0052cc;
+color:white;
+border:none;
+padding:15px;
+border-radius:50%;
+font-size:20px;
+cursor:pointer;
+display:none;
+z-index:9999;
+}
+
+.whatsapp{
+
+position:fixed;
+bottom:20px;
+left:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:30px;
+text-decoration:none;
+z-index:9999;
+
+}
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+
+}
+
+.stats .card{
+
+text-align:center;
+
+}
+
+.counter{
+
+font-size:40px;
+color:#0052cc;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="hero">
+
+<h1>PT. MARUICHI INDONESIA</h1>
+
+<p>
+Manufacturing Motorcycle Parts & Supplies<br>
+Quality • Innovation • Customer Satisfaction
+</p>
+
+<a href="#about" class="button">
+Explore Company
+</a>
+
+</div>
+
+</header>
+
+
+<nav>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+<li><a href="#history">History</a></li>
+<li><a href="#vision">Vision</a></li>
+<li><a href="#business">Business</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+
+<section id="about">
+
+<h2 class="title">
+Company Overview
+</h2>
+
+<div class="about">
+
+<div>
+
+<p style="line-height:2">
+
+PT. MARUICHI INDONESIA didirikan pada tahun
+<b>2002</b> dan merupakan bagian dari
+<b>Maruichi Co., Ltd Jepang.</b>
+
+Perusahaan bergerak di bidang manufaktur
+komponen otomotif khususnya:
+
+<br><br>
+
+✓ Manufacturing Motorcycle Parts<br>
+✓ Motorcycle & Scooters Parts Supplies
+
+<br><br>
+
+Dengan teknologi Jepang dan sistem pengendalian kualitas
+yang ketat, perusahaan berkomitmen menghasilkan
+produk berkualitas tinggi untuk mendukung
+industri otomotif.
+
+</p>
+
+</div>
+
+<img src="mi3.jpg">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">
+Company Statistics
+</h2>
+
+<div class="stats">
+
+<div class="card" data-aos="fade-up">
+
+<h2 class="counter" data-target="24">0</h2>
+
+<p>Years Experience</p>
+
+</div>
+
+<div class="card" data-aos="fade-up">
+
+<h2 class="counter" data-target="500">0</h2>
+
+<p>Employees</p>
+
+</div>
+
+<div class="card" data-aos="fade-up">
+
+<h2 class="counter" data-target="100">0</h2>
+
+<p>Business Partners</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="history">
+
+<h2 class="title">
+Company History
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>2002</h3>
+
+<p>
+PT. MARUICHI INDONESIA didirikan
+di Karawang Indonesia.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Business Expansion</h3>
+
+<p>
+Mengembangkan kapasitas produksi
+dan teknologi manufaktur.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Today</h3>
+
+<p>
+Mendukung industri otomotif
+dengan kualitas standar Jepang.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="vision">
+
+<h2 class="title">
+Vision & Mission
+</h2>
+
+<div class="card-container">
+
+<div class="card" data-aos="fade-up">
+
+<h3>Vision</h3>
+
+<br>
+
+<p>
+Menjadi perusahaan manufactur yang selalu mengutamakan kualitas dan kepuasan pelanggan
+</p>
+
+</div>
+
+<div class="card" data-aos="fade-up">
+
+<h3>Mission</h3>
+
+<br>
+
+<p>
+1. Memberdayakan sumberdaya manusia (SDM) menjadi individu yang berkualitas, berdisiplin dan berdedikasi.<br>
+2. Selalu mengutamakan kualitas produk yang dihasilkan.<br>
+3. Selalu mengutamakan pelanggan, dengan cara tepat waktu dalam memenuhi permintaan pelanggan.
+</p>
+
+</div>
+
+<div class="card" data-aos="fade-up">
+
+<h3>Core Value</h3>
+
+<br>
+
+<p>
+Integrity<br>
+Quality<br>
+Innovation<br>
+Teamwork
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="business">
+
+<h2 class="title">
+Business Area
+</h2>
+
+<div class="card-container">
+
+<div class="card" data-aos="fade-up">
+
+<h3>Motorcycle Parts</h3>
+<p>Manufacturing motorcycle components</p>
+
+</div>
+
+<div class="card" data-aos="fade-up">
+
+<h3>Parts Supply</h3>
+<p>Motorcycle & scooter parts supplies</p>
+
+</div>
+
+<div class="card" data-aos="fade-up">
+
+<h3>Quality Control</h3>
+<p>Japanese manufacturing standards</p>
+
+</div>
+
+<div class="card" data-aos="fade-up">
+
+<h3>Customer Satisfaction</h3>
+<p>Continuous improvement & quality service</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="gallery">
+
+<h2 class="title">
+Company Gallery
+</h2>
+
+<div class="gallery">
+
+<img src="mi2.jpg" data-aos="zoom-in">
+
+<img src="mi4.jpg" data-aos="zoom-in">
+
+<img src="mi3.jpg" data-aos="zoom-in">
+
+</div>
+<br><br>
+
+<iframe
+src="https://maps.google.com/maps?q=KIIC%20Karawang&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%"
+height="300"
+style="border-radius:15px;border:none;">
+</iframe>
+</section>
+
+
+
+<section id="contact">
+
+<h2 class="title">
+Contact Information
+</h2>
+
+<div class="contact">
+
+<h2>PT. MARUICHI INDONESIA</h2>
+
+<p>
+📍 Jl. Maligi Raya Lot Q-2A<br>
+Kawasan Industri KIIC<br>
+Karawang 41361 Indonesia
+</p>
+
+<p>
+☎ (62-21) 8901814/5
+</p>
+
+<p>
+📠 (62-21) 8901816
+</p>
+
+<p>
+✉ maruichi@indo.net.id
+</p>
+
+<p>
+President : Yasuhisa Yamada
+</p>
+
+<p>
+Parent Company : Maruichi Co., Ltd
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<h3>PT. MARUICHI INDONESIA</h3>
+
+<p>
+© 2026 Company Profile | All Rights Reserved
+</p>
+
+</footer>
+<button id="themeBtn">
+🌙
+</button>
+
+<button id="topBtn">
+↑
+</button>
+
+<a href="https://wa.me/085780440741"
+class="whatsapp">
+
+💬
+
+</a>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+duration:1000,
+once:true
+
+});
+
+
+const btn=
+document.getElementById("themeBtn");
+
+btn.onclick=()=>{
+
+document.body.classList.toggle("dark");
+
+}
+
+
+const topBtn=
+document.getElementById("topBtn");
+
+window.onscroll=()=>{
+
+topBtn.style.display=
+window.scrollY>300
+?"block":"none";
+
+}
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+behavior:"smooth"
+
+})
+
+}
+
+
+
+const counters=
+document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=
++counter.dataset.target;
+
+const count=
++counter.innerText;
+
+const increment=
+target/50;
+
+if(count<target){
+
+counter.innerText=
+Math.ceil(
+count+increment
+);
+
+setTimeout(update,30);
+
+}else{
+
+counter.innerText=
+target;
+
+}
+
+}
+
+update();
+
+});
+
+</script>
+</body>
+</html>

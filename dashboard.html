@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Admin Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+padding:40px;
+}
+
+.header{
+
+background:#002b69;
+color:white;
+padding:25px;
+border-radius:20px;
+margin-bottom:30px;
+
+}
+
+.container{
+
+display:grid;
+grid-template-columns:1fr 2fr;
+gap:30px;
+
+}
+
+.card{
+
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+
+}
+
+input,textarea{
+
+width:100%;
+padding:15px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:10px;
+
+}
+
+button{
+
+padding:12px 25px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+
+}
+
+.addBtn{
+
+background:#0052cc;
+color:white;
+
+}
+
+.deleteBtn{
+
+background:red;
+color:white;
+margin-top:15px;
+
+}
+
+.job{
+
+margin-top:20px;
+padding:20px;
+border-left:5px solid #0052cc;
+background:#f7f7f7;
+border-radius:10px;
+
+}
+
+.stats{
+
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+color:#0052cc;
+
+}
+
+.logout{
+
+float:right;
+background:white;
+color:#002b69;
+
+}
+
+@media(max-width:768px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>Admin Dashboard</h1>
+
+<button class="logout"
+onclick="logout()">
+
+Logout
+
+</button>
+
+<p>
+Manage Recruitment & Job Vacancies
+</p>
+
+</div>
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h2>Add Job Vacancy</h2>
+
+<input
+type="text"
+id="title"
+placeholder="Position Name">
+
+<textarea
+id="requirements"
+placeholder="Requirements">
+</textarea>
+
+<button
+class="addBtn"
+onclick="addJob()">
+
+Add Vacancy
+
+</button>
+
+
+<div class="stats">
+
+Total Vacancy:
+<span id="total">0</span>
+
+<br><br>
+
+Total Applicants:
+<span id="totalApplicants">0</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Job Vacancy List</h2>
+
+<div id="jobList">
+
+</div>
+
+</div>
+<div class="card">
+
+<h2>Applicant List</h2>
+
+<div id="applicantList">
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let jobs=
+JSON.parse(
+localStorage.getItem("jobs")
+)||[];
+
+
+function saveJobs(){
+
+localStorage.setItem(
+"jobs",
+JSON.stringify(jobs)
+);
+
+renderJobs();
+
+}
+
+
+
+function addJob(){
+
+let title=
+document.getElementById(
+"title"
+).value;
+
+let req=
+document.getElementById(
+"requirements"
+).value;
+
+
+if(
+title==""
+||
+req==""
+){
+
+alert(
+"Please complete all fields"
+);
+
+return;
+
+}
+
+
+jobs.push({
+
+title:title,
+requirements:req
+
+});
+
+
+document.getElementById(
+"title"
+).value="";
+
+document.getElementById(
+"requirements"
+).value="";
+
+
+saveJobs();
+
+}
+
+
+
+function deleteJob(index){
+
+jobs.splice(index,1);
+
+saveJobs();
+
+}
+
+
+
+function renderJobs(){
+
+let list=
+document.getElementById(
+"jobList"
+);
+
+list.innerHTML="";
+
+
+jobs.forEach((job,index)=>{
+
+list.innerHTML+=`
+
+<div class="job">
+
+<h3>
+
+${job.title}
+
+</h3>
+
+<br>
+
+<p>
+
+${job.requirements}
+
+</p>
+
+<button
+class="deleteBtn"
+onclick="deleteJob(${index})">
+
+Delete
+
+</button>
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById(
+"total"
+).innerText=
+jobs.length;
+
+
+}
+
+
+
+function logout(){
+
+window.location=
+"admin.html";
+
+}
+
+
+renderJobs();
+
+</script>
+
+</body>
+
+</html>
